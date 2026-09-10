@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天涯海阁-中文网络文学阅读与写作交流社区</title>
+<meta name="description" content="天涯海阁是面向中文网络文学读者的在线阅读与写作交流社区，提供小说分类浏览、连载更新、书单推荐、写作交流与读者讨论等栏目，帮助读者发现值得读的故事。">
+<meta name="keywords" content="天涯海阁,网络文学,在线阅读,小说推荐,连载更新,书友社区,写作交流">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --ink:#1c2331;
+  --ink-soft:#4a5468;
+  --muted:#7b869c;
+  --paper:#f6f3ec;
+  --card:#ffffff;
+  --line:#e2ddd2;
+  --brand:#8c2f39;
+  --brand-deep:#5e1f27;
+  --brand-soft:#f3e2e2;
+  --jade:#2f6b5e;
+  --jade-soft:#e2efe9;
+  --gold:#b98a3c;
+  --radius:14px;
+  --shadow:0 6px 24px rgba(28,35,49,.08);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;}
+p{margin:0 0 1em;}
+ul{margin:0;padding:0;list-style:none;}
+
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+
+/* ---------- 顶部 ---------- */
+.topbar{
+  background:var(--ink);
+  color:#cfd6e4;
+  font-size:13px;
+}
+.topbar .wrap{
+  display:flex;justify-content:space-between;align-items:center;
+  min-height:40px;flex-wrap:wrap;gap:8px;
+}
+.topbar a:hover{color:#fff;}
+.topbar .tb-links{display:flex;gap:16px;flex-wrap:wrap;}
+
+header.site-head{
+  background:linear-gradient(160deg,#5e1f27 0%,#8c2f39 55%,#a8484f 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+header.site-head::after{
+  content:"";
+  position:absolute;inset:auto -60px -80px auto;
+  width:320px;height:320px;border-radius:50%;
+  background:rgba(255,255,255,.06);
+}
+.head-inner{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;padding:18px 0;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand .seal{
+  width:52px;height:52px;flex:0 0 52px;
+  border-radius:12px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:800;letter-spacing:1px;
+}
+.brand-text h1{font-size:22px;letter-spacing:2px;}
+.brand-text span{font-size:12.5px;color:#f0d7d9;letter-spacing:1px;}
+
+nav.main-nav ul{display:flex;gap:6px;flex-wrap:wrap;}
+nav.main-nav a{
+  display:block;padding:8px 14px;border-radius:999px;
+  font-size:14.5px;color:#f6e7e8;
+  transition:background .2s,color .2s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{
+  background:rgba(255,255,255,.16);color:#fff;
+}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  background:linear-gradient(180deg,#8c2f39 0%,#7c2731 100%);
+  color:#fff;
+  padding:0 0 46px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:36px;align-items:start;
+  padding-top:6px;
+}
+.hero h2{
+  font-size:clamp(24px,3.4vw,34px);
+  letter-spacing:1px;margin-bottom:14px;
+}
+.hero p.lead{
+  color:#f2dcdd;font-size:16px;max-width:620px;
+}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 22px;}
+.hero-tags span{
+  font-size:13px;padding:5px 12px;border-radius:999px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.28);
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:11px 24px;border-radius:999px;
+  font-size:15px;font-weight:600;
+  transition:transform .18s,box-shadow .18s,background .18s;
+}
+.btn-primary{background:#fff;color:var(--brand-deep);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.22);}
+.btn-ghost{border:1px solid rgba(255,255,255,.6);color:#fff;}
+.btn-ghost:hover{background:rgba(255,255,255,.14);}
+
+.hero-panel{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  backdrop-filter:blur(2px);
+}
+.hero-panel h3{font-size:16px;margin-bottom:14px;letter-spacing:1px;color:#fff;}
+.update-list li{
+  display:flex;justify-content:space-between;gap:12px;
+  padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.22);
+  font-size:14px;
+}
+.update-list li:last-child{border-bottom:none;}
+.update-list .u-name{color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.update-list .u-chap{color:#f0c9cc;flex:0 0 auto;font-size:13px;}
+
+/* ---------- 通用区块 ---------- */
+main{padding-bottom:20px;}
+section.block{padding:52px 0 8px;}
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:16px;margin-bottom:24px;flex-wrap:wrap;
+  border-bottom:2px solid var(--line);padding-bottom:12px;
+}
+.sec-head h2{
+  font-size:22px;letter-spacing:1px;position:relative;padding-left:14px;
+}
+.sec-head h2::before{
+  content:"";position:absolute;left:0;top:6px;bottom:6px;width:5px;
+  border-radius:3px;background:var(--brand);
+}
+.sec-head .sec-desc{font-size:14px;color:var(--muted);max-width:640px;}
+
+/* ---------- 分类 ---------- */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;
+}
+.cat-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.cat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d3c9b8;}
+.cat-card h3{font-size:16px;margin-bottom:6px;color:var(--brand-deep);}
+.cat-card p{font-size:13.5px;color:var(--muted);margin:0;}
+
+/* ---------- 推荐书单 ---------- */
+.book-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;
+}
+.book-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;display:flex;flex-direction:column;gap:10px;
+  transition:transform .2s,box-shadow .2s;
+}
+.book-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.book-card .b-top{display:flex;align-items:center;gap:12px;}
+.book-cover{
+  width:46px;height:60px;flex:0 0 46px;border-radius:8px;
+  background:linear-gradient(150deg,#8c2f39,#c06a70);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:700;letter-spacing:1px;
+}
+.book-card h3{font-size:16.5px;margin-bottom:4px;}
+.book-card .b-meta{font-size:12.5px;color:var(--muted);}
+.book-card p.desc{font-size:14px;color:var(--ink-soft);margin:0;flex:1;}
+.b-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.b-tags span{
+  font-size:12px;padding:3px 10px;border-radius:999px;
+  background:var(--brand-soft);color:var(--brand-deep);
+}
+.b-tags span.jade{background:var(--jade-soft);color:var(--jade);}
+
+/* ---------- 榜单 + 交流 ---------- */
+.two-col{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:start;
+}
+.rank-list{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.rank-list li{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;border-bottom:1px solid var(--line);font-size:14.5px;
+}
+.rank-list li:last-child{border-bottom:none;}
+.rank-no{
+  width:26px;height:26px;flex:0 0 26px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;background:#efe9dd;color:var(--ink-soft);
+}
+.rank-list li:nth-child(1) .rank-no{background:var(--brand);color:#fff;}
+.rank-list li:nth-child(2) .rank-no{background:#c06a70;color:#fff;}
+.rank-list li:nth-child(3) .rank-no{background:var(--gold);color:#fff;}
+.rank-list .r-info{flex:1;min-width:0;}
+.rank-list .r-info strong{display:block;font-size:15px;font-weight:600;}
+.rank-list .r-info small{color:var(--muted);font-size:12.5px;}
+.rank-list .r-heat{font-size:12.5px;color:var(--jade);flex:0 0 auto;}
+
+.talk-box{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;
+}
+.talk-box h3{font-size:17px;margin-bottom:14px;color:var(--brand-deep);}
+.talk-list li{
+  padding:12px 0;border-bottom:1px dashed var(--line);
+}
+.talk-list li:last-child{border-bottom:none;padding-bottom:0;}
+.talk-list .t-title{font-size:14.5px;font-weight:600;}
+.talk-list .t-foot{font-size:12.5px;color:var(--muted);margin-top:3px;}
+
+/* ---------- 写作指南 ---------- */
+.guide-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;
+}
+.guide-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;border-top:3px solid var(--jade);
+}
+.guide-card h3{font-size:16.5px;margin-bottom:10px;}
+.guide-card p{font-size:14px;color:var(--ink-soft);margin:0;}
+.guide-card ol{padding-left:18px;margin:0;font-size:14px;color:var(--ink-soft);}
+.guide-card ol li{margin-bottom:6px;}
+
+/* ---------- FAQ ---------- */
+.faq{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:8px 22px;}
+.faq details{border-bottom:1px solid var(--line);padding:14px 0;}
+.faq details:last-child{border-bottom:none;}
+.faq summary{
+  cursor:pointer;font-size:15.5px;font-weight:600;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"＋";color:var(--brand);font-weight:700;}
+.faq details[open] summary::after{content:"－";}
+.faq .faq-body{font-size:14.5px;color:var(--ink-soft);padding-top:10px;}
+
+/* ---------- 页脚 ---------- */
+footer.site-foot{
+  margin-top:60px;background:var(--ink);color:#a9b3c6;font-size:13.5px;
+  padding:42px 0 26px;
+}
+.foot-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;
+}
+.foot-grid h4{color:#fff;font-size:15px;margin-bottom:12px;letter-spacing:1px;}
+.foot-grid li{margin-bottom:8px;}
+.foot-grid a:hover{color:#fff;}
+.foot-brand p{color:#8d97ab;font-size:13px;margin:10px 0 0;max-width:320px;}
+.foot-bottom{
+  margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  color:#7d879b;font-size:12.5px;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:26px;}
+  .two-col{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  body{font-size:15.5px;}
+  .head-inner{padding:14px 0;}
+  .brand-text h1{font-size:19px;}
+  nav.main-nav ul{gap:2px;}
+  nav.main-nav a{padding:7px 11px;font-size:13.5px;}
+  .hero{padding-bottom:34px;}
+  section.block{padding:38px 0 4px;}
+  .sec-head h2{font-size:19px;}
+  .foot-grid{grid-template-columns:1fr;}
+  .rank-list li{padding:12px 14px;gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>天涯海阁 · 中文网络文学阅读与写作交流社区</span>
+    <div class="tb-links">
+      <a href="#categories">作品分类</a>
+      <a href="#ranking">人气榜单</a>
+      <a href="#guide">写作指南</a>
+      <a href="#faq">常见问题</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <div class="seal">海</div>
+      <div class="brand-text">
+        <h1>天涯海阁</h1>
+        <span>读故事 · 写故事 · 聊故事</span>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <ul>
+        <li><a href="#intro" class="active">首页</a></li>
+        <li><a href="#categories">分类</a></li>
+        <li><a href="#recommend">书单推荐</a></li>
+        <li><a href="#ranking">榜单</a></li>
+        <li><a href="#guide">写作交流</a></li>
+        <li><a href="#faq">帮助</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h2>在天涯海阁，找到下一本想读完的故事</h2>
+      <p class="lead">天涯海阁是一个围绕中文网络文学展开的阅读与交流站点。这里按题材整理作品分类，跟踪连载更新，汇集读者书单与讨论话题，也欢迎写作者分享创作心得。无论你是想找一本轻松消遣的读物，还是想认真打磨自己的长篇，都可以从下面的栏目开始。</p>
+      <div class="hero-tags">
+        <span>玄幻奇幻</span>
+        <span>都市现实</span>
+        <span>历史军事</span>
+        <span>科幻悬疑</span>
+        <span>言情古风</span>
+        <span>武侠仙侠</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#recommend" class="btn btn-primary">浏览本期书单</a>
+        <a href="#guide" class="btn btn-ghost">进入写作交流</a>
+      </div>
+    </div>
+    <aside class="hero-panel" aria-label="近期更新提示">
+      <h3>连载更新速览</h3>
+      <ul class="update-list">
+        <li><span class="u-name">《长风渡海记》</span><span class="u-chap">更新至第 128 章</span></li>
+        <li><span class="u-name">《旧城灯火》</span><span class="u-chap">更新至第 76 章</span></li>
+        <li><span class="u-name">《北境纪事》</span><span class="u-chap">更新至第 214 章</span></li>
+        <li><span class="u-name">《雾中灯塔》</span><span class="u-chap">更新至第 43 章</span></li>
+        <li><span class="u-name">《山海拾遗录》</span><span class="u-chap">更新至第 91 章</span></li>
+      </ul>
+    </aside>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <!-- 简介 -->
+    <section class="block" id="intro">
+      <div class="sec-head">
+        <h2>天涯海阁是什么</h2>
+      </div>
+      <div class="two-col">
+        <div>
+          <p>天涯海阁面向的是普通的中文网络文学读者与写作者。它不追求把作品塞进一个庞大的排行榜，而是先把题材分清楚，再按阅读口味给出可参考的书单与更新提示，让读者在有限的空闲时间里更快做决定。</p>
+          <p>对写作者，天涯海阁提供的是交流而非承诺。这里讨论如何设计开篇、如何控制节奏、如何安排章节钩子、如何处理长篇中段容易松散的问题。经验可以借鉴，但写作本身没有统一公式，每个人的题材、更新频率和阅读人群都不相同。</p>
+          <p>站内内容以文字为主，不依赖复杂交互。你可以直接使用分类、榜单、书单和常见问题几个板块，也可以只把这里当作一个整理阅读偏好的入口。</p>
+        </div>
+        <div class="talk-box">
+          <h3>读者最常问的三件事</h3>
+          <ul class="talk-list">
+            <li>
+              <div class="t-title">怎么快速判断一本书是否合口味？</div>
+              <div class="t-foot">先看题材标签与开篇三章，再看更新节奏是否稳定。</div>
+            </li>
+            <li>
+              <div class="t-title">连载作品适合什么时候开始读？</div>
+              <div class="t-foot">篇幅较长时，可等主线阶段结束或作者明确更新计划后再入坑。</div>
+            </li>
+            <li>
+              <div class="t-title">想自己写，从哪里开始？</div>
+              <div class="t-foot">先写一个能独立成立的短篇，再考虑扩展为长篇结构。</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 分类 -->
+    <section class="block" id="categories">
+      <div class="sec-head">
+        <h2>作品分类</h2>
+        <p class="sec-desc">按题材划分，方便按阅读情绪和偏好挑选，而不是只看热度。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <h3>玄幻奇幻</h3>
+          <p>架空世界、力量体系与冒险主线，适合喜欢宏大设定与成长线的读者。</p>
+        </article>
+        <article class="cat-card">
+          <h3>武侠仙侠</h3>
+          <p>江湖恩怨、门派传承与修行脉络，注重人物关系与招式意境。</p>
+        </article>
+        <article class="cat-card">
+          <h3>都市现实</h3>
+          <p>贴近日常生活的背景，聚焦职场、家庭与个人选择。</p>
+        </article>
+        <article class="cat-card">
+          <h3>历史军事</h3>
+          <p>以历史时期或军事推演为背景，重视考据感与局势逻辑。</p>
+        </article>
+        <article class="cat-card">
+          <h3>科幻悬疑</h3>
+          <p>未来设定、推理线索与悬念推进，阅读节奏通常较紧凑。</p>
+        </article>
+        <article class="cat-card">
+          <h3>言情古风</h3>
+          <p>以情感线为核心，兼顾时代氛围与人物细腻度的作品。</p>
+        </article>
+        <article class="cat-card">
+          <h3>短篇与随笔</h3>
+          <p>篇幅较短，适合通勤或碎片时间阅读，也便于尝试不同风格。</p>
+        </article>
+        <article class="cat-card">
+          <h3>新人试读</h3>
+          <p>面向刚开始写作的作者，作品篇幅较短，便于读者给出反馈。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 书单推荐 -->
+    <section class="block" id="recommend">
+      <div class="sec-head">
+        <h2>本期书单推荐</h2>
+        <p class="sec-desc">从不同题材中各选一类，给出阅读入口与适合人群，供参考而非定论。</p>
+      </div>
+      <div class="book-grid">
+        <article class="book-card">
+          <div class="b-top">
+            <div class="book-cover">玄幻</div>
+            <div>
+              <h3>《长风渡海记》</h3>
+              <div class="b-meta">连载中 · 冒险成长</div>
+            </div>
+          </div>
+          <p class="desc">以海上航行为主线，围绕一个逐渐扩大的世界展开。适合喜欢稳步推进、看重世界观完整度的读者。</p>
+          <div class="b-tags"><span>世界观</span><span class="jade">成长线</span></div>
+        </article>
+
+        <article class="book-card">
+          <div class="b-top">
+            <div class="book-cover">都市</div>
+            <div>
+              <h3>《旧城灯火》</h3>
+              <div class="b-meta">连载中 · 现实生活</div>
+            </div>
+          </div>
+          <p class="desc">写普通人在城市里的选择与坚持，节奏平缓，细节扎实，适合睡前或周末慢慢读。</p>
+          <div class="b-tags"><span>现实题材</span><span class="jade">生活感</span></div>
+        </article>
+
+        <article class="book-card">
+          <div class="b-top">
+            <div class="book-cover">历史</div>
+            <div>
+              <h3>《北境纪事》</h3>
+              <div class="b-meta">连载中 · 群像叙事</div>
+            </div>
+          </div>
+          <p class="desc">多线并行的群像结构，人物众多但线索清晰。适合愿意花时间梳理人物关系的读者。</p>
+          <div class="b-tags"><span>群像</span><span class="jade">多线叙事</span></div>
+        </article>
+
+        <article class="book-card">
+          <div class="b-top">
+            <div class="book-cover">悬疑</div>
+            <div>
+              <h3>《雾中灯塔》</h3>
+              <div class="b-meta">连载中 · 悬念推理</div>
+            </div>
+          </div>
+          <p class="desc">以一座海边小城为舞台，线索逐步收束。适合喜欢边读边猜、不介意慢热的读者。</p>
+          <div class="b-tags"><span>悬念</span><span class="jade">慢热</span></div>
+        </article>
+
+        <article class="book-card">
+          <div class="b-top">
+            <div class="book-cover">仙侠</div>
+            <div>
+              <h3>《山海拾遗录》</h3>
+              <div class="b-meta">连载中 · 志怪仙侠</div>
+            </div>
+          </div>
+          <p class="desc">以短篇串起长线，每章相对独立，适合碎片时间阅读，也方便随时中断。</p>
+          <div class="b-tags"><span>短篇串联</span><span class="jade">志怪</span></div>
+        </article>
+
+        <article class="book-card">
+          <div class="b-top">
+            <div class="book-cover">新人</div>
+            <div>
+              <h3>《试读合集 · 第一辑》</h3>
+              <div class="b-meta">短篇 · 新人作品</div>
+            </div>
+          </div>
+          <p class="desc">收录多位新作者的短篇试读，题材各异。适合想快速了解不同写作风格的读者。</p>
+          <div class="b-tags"><span>新人</span><span class="jade">短篇</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 榜单与话题 -->
+    <section class="block" id="ranking">
+      <div class="sec-head">
+        <h2>人气榜单与读者话题</h2>
+        <p class="sec-desc">榜单反映近期阅读关注度，话题区展示读者正在讨论的内容方向。</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <ul class="rank-list">
+            <li>
+              <span class="rank-no">1</span>
+              <div class="r-info"><strong>《北境纪事》</strong><small>历史军事 · 群像叙事</small></div>
+              <span class="r-heat">关注上升</span>
+            </li>
+            <li>
+              <span class="rank-no">2</span>
+              <div class="r-info"><strong>《长风渡海记》</strong><small>玄幻奇幻 · 冒险成长</small></div>
+              <span class="r-heat">稳定靠前</span>
+            </li>
+            <li>
+              <span class="rank-no">3</span>
+              <div class="r-info"><strong>《雾中灯塔》</strong><small>科幻悬疑 · 悬念推理</small></div>
+              <span class="r-heat">讨论活跃</span>
+            </li>
+            <li>
+              <span class="rank-no">4</span>
+              <div class="r-info"><strong>《旧城灯火》</strong><small>都市现实 · 生活叙事</small></div>
+              <span class="r-heat">口碑平稳</span>
+            </li>
+            <li>
+              <span class="rank-no">5</span>
+              <div class="r-info"><strong>《山海拾遗录》</strong><small>武侠仙侠 · 志怪短篇</small></div>
+              <span class="r-heat">收藏增长</span>
+            </li>
+          </ul>
+        </div>
+        <div class="talk-box">
+          <h3>读者正在聊</h3>
+          <ul class="talk-list">
+            <li>
+              <div class="t-title">长篇写到中段容易松散，怎么调整？</div>
+              <div class="t-foot">写作者交流区 · 关于节奏与支线取舍</div>
+            </li>
+            <li>
+              <div class="t-title">群像作品如何让读者记住人物？</div>
+              <div class="t-foot">写作讨论 · 人物标签与出场设计</div>
+            </li>
+            <li>
+              <div class="t-title">慢热作品该不该在开篇加快节奏？</div>
+              <div class="t-foot">读者视角 · 开篇三章的取舍</div>
+            </li>
+            <li>
+              <div class="t-title">短篇与长篇的写作准备有什么不同？</div>
+              <div class="t-foot">新人专区 · 从短篇开始练习</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 写作指南 -->
+    <section class="block" id="guide">
+      <div class="sec-head">
+        <h2>写作交流与阅读建议</h2>
+        <p class="sec-desc">以下内容为经验性整理，供参考，不构成必须遵循的规则。</p>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card">
+          <h3>写作者：先把开篇写稳</h3>
+          <ol>
+            <li>用一两段交代清楚主角当下的处境，而不是先铺设定。</li>
+            <li>让第一章出现一个具体的小目标或小冲突。</li>
+            <li>避免在开头塞入过多名词与背景解释。</li>
+            <li>写完后隔一天再读，删掉不影响理解的句子。</li>
+          </ol>
+        </article>
+        <article class="guide-card">
+          <h3>写作者：控制长篇节奏</h3>
+          <ol>
+            <li>把主线拆成若干阶段，每阶段有明确收束点。</li>
+            <li>支线服务于人物或主线，不单独膨胀。</li>
+            <li>在阶段之间安排一次视角或场景的变化。</li>
+            <li>定期回看前文，避免设定前后矛盾。</li>
+          </ol>
+        </article>
+        <article class="guide-card">
+          <h3>读者：如何选书</h3>
+          <p>先看题材标签是否符合当下阅读情绪，再试读开篇三章判断文风。连载作品可留意更新是否稳定，避免因长期停更影响阅读体验。若对篇幅敏感，可优先选择短篇或已完结作品。</p>
+        </article>
+        <article class="guide-card">
+          <h3>读者：如何给出有效反馈</h3>
+          <p>指出具体段落而非笼统评价，说明读到哪里产生了困惑或共鸣。对新人作者，肯定优点与提出一个问题，通常比长篇批评更有帮助。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="block" id="faq">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>天涯海阁主要提供什么内容？</summary>
+          <div class="faq-body">天涯海阁围绕中文网络文学，提供题材分类、连载更新提示、书单推荐、榜单参考以及写作与阅读交流内容。它更像一个整理阅读偏好和交流写作经验的入口，而不是单一作品的专属页面。</div>
+        </details>
+        <details>
+          <summary>站内作品都是完整的吗？</summary>
+          <div class="faq-body">站内涉及的连载作品更新状态会随时间变化，具体章节进度以作品自身情况为准。建议在阅读前先确认更新节奏，以免影响阅读体验。</div>
+        </details>
+        <details>
+          <summary>我想投稿或发布自己的作品，可以吗？</summary>
+          <div class="faq-body">天涯海阁欢迎写作者参与交流。新人可以从短篇试读开始，逐步积累反馈。发布前建议确认作品为本人原创，并注意尊重他人版权。</div>
+        </details>
+        <details>
+          <summary>榜单是按什么排序的？</summary>
+          <div class="faq-body">榜单用于反映近期读者关注方向，属于参考性整理，并非绝对评价标准。不同读者的口味差异较大，建议结合分类与书单综合判断。</div>
+        </details>
+        <details>
+          <summary>如何参与读者话题讨论？</summary>
+          <div class="faq-body">可从“读者正在聊”与写作交流板块进入相关话题，围绕具体问题展开讨论。表达观点时保持理性，避免针对作者个人的攻击性言论。</div>
+        </details>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <h4>天涯海阁</h4>
+        <p>中文网络文学阅读与写作交流社区，整理分类、书单与更新提示，帮助读者更快找到想读的故事。</p>
+      </div>
+      <div>
+        <h4>浏览</h4>
+        <ul>
+          <li><a href="#categories">作品分类</a></li>
+          <li><a href="#recommend">书单推荐</a></li>
+          <li><a href="#ranking">人气榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与</h4>
+        <ul>
+          <li><a href="#guide">写作交流</a></li>
+          <li><a href="#ranking">读者话题</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>说明</h4>
+        <ul>
+          <li><a href="#intro">站点简介</a></li>
+          <li><a href="#faq">阅读建议</a></li>
+          <li><a href="#guide">反馈方式</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>天涯海阁 · 内容以文字阅读与写作交流为主</span>
+      <span>请尊重原创，转载与引用注明来源</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('nav.main-nav a');
+  var sections = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href');
+    if(id && id.charAt(0) === '#'){
+      var el = document.querySelector(id);
+      if(el){ sections.push({link:a, el:el}); }
+    }
+  });
+  if(!sections.length) return;
+  function onScroll(){
+    var pos = window.scrollY + 130;
+    var current = sections[0];
+    sections.forEach(function(item){
+      if(item.el.offsetTop <= pos){ current = item; }
+    });
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(current) current.link.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+  </html>
