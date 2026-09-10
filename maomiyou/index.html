@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>猫咪有你有我足矣-温暖治愈的猫咪陪伴生活指南</title>
+<meta name="description" content="猫咪有你有我足矣，记录与猫咪相伴的温暖日常，分享养猫入门知识、猫咪行为解读、居家环境布置、健康照护要点与情感陪伴故事，帮助每一位铲屎官更懂身边的猫。">
+<meta name="keywords" content="猫咪有你有我足矣,猫咪陪伴,养猫指南,猫咪日常,铲屎官,猫咪行为,猫咪健康,治愈生活">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --cream:#fdf8f2;
+    --warm:#f6e7d5;
+    --peach:#f2b98c;
+    --clay:#c97b4a;
+    --deep:#4a3527;
+    --soft:#8a7566;
+    --line:#eadfd2;
+    --white:#ffffff;
+    --green:#7fa87f;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(122,86,58,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--cream);
+    color:var(--deep);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- header ---------- */
+  header.site-head{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,248,242,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:14px 20px;max-width:1160px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15rem;letter-spacing:.5px;}
+  .brand .paw{
+    width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(140deg,var(--peach),var(--clay));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:1.05rem;box-shadow:0 6px 14px rgba(201,123,74,.32);
+  }
+  .brand small{display:block;font-size:.68rem;font-weight:400;color:var(--soft);letter-spacing:1px;}
+  nav.main-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.main-nav a{
+    padding:8px 14px;border-radius:999px;font-size:.92rem;color:var(--soft);
+    transition:.25s;
+  }
+  nav.main-nav a:hover,nav.main-nav a.active{background:var(--warm);color:var(--clay);font-weight:600;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(circle at 85% 15%,rgba(242,185,140,.35),transparent 55%),
+      radial-gradient(circle at 10% 90%,rgba(127,168,127,.22),transparent 50%),
+      var(--warm);
+    padding:64px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+  .hero h1{font-size:2.5rem;line-height:1.3;letter-spacing:1px;margin-bottom:18px;}
+  .hero h1 span{
+    color:var(--clay);
+    background:linear-gradient(transparent 62%,rgba(242,185,140,.6) 62%);
+  }
+  .hero p.lead{font-size:1.05rem;color:var(--soft);max-width:34em;margin-bottom:26px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:12px 26px;border-radius:999px;font-size:.95rem;
+    font-weight:600;transition:.25s;border:1px solid transparent;cursor:pointer;
+  }
+  .btn-main{background:var(--clay);color:#fff;box-shadow:0 8px 20px rgba(201,123,74,.3);}
+  .btn-main:hover{background:#b56836;transform:translateY(-2px);}
+  .btn-ghost{background:transparent;border-color:var(--peach);color:var(--clay);}
+  .btn-ghost:hover{background:#fff;}
+
+  .hero-card{
+    background:var(--white);border-radius:26px;padding:26px;box-shadow:var(--shadow);
+    border:1px solid var(--line);
+  }
+  .hero-card h3{font-size:1.05rem;margin-bottom:14px;color:var(--clay);}
+  .hero-card ul{list-style:none;display:grid;gap:12px;}
+  .hero-card li{
+    display:flex;gap:10px;align-items:flex-start;font-size:.92rem;color:var(--soft);
+    padding-bottom:12px;border-bottom:1px dashed var(--line);
+  }
+  .hero-card li:last-child{border-bottom:none;padding-bottom:0;}
+  .hero-card li b{color:var(--deep);font-weight:600;}
+  .dot{
+    flex:none;width:8px;height:8px;border-radius:50%;background:var(--peach);margin-top:9px;
+  }
+
+  /* ---------- section base ---------- */
+  section{padding:60px 0;}
+  .sec-head{margin-bottom:32px;}
+  .sec-head .kicker{
+    display:inline-block;font-size:.78rem;letter-spacing:2px;color:var(--clay);
+    background:var(--warm);padding:4px 12px;border-radius:999px;margin-bottom:12px;
+  }
+  .sec-head h2{font-size:1.7rem;letter-spacing:.5px;margin-bottom:10px;}
+  .sec-head p{color:var(--soft);max-width:52em;font-size:.96rem;}
+
+  /* ---------- article intro ---------- */
+  .intro-band{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .intro-item{padding:22px;border-radius:var(--radius);background:var(--cream);border:1px solid var(--line);}
+  .intro-item h3{font-size:1.05rem;margin-bottom:10px;color:var(--clay);}
+  .intro-item p{font-size:.92rem;color:var(--soft);}
+
+  /* ---------- knowledge cards ---------- */
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{
+    background:var(--white);border-radius:var(--radius);padding:26px;
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    transition:.28s;display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(122,86,58,.16);}
+  .card .tag{
+    align-self:flex-start;font-size:.72rem;letter-spacing:1px;color:#fff;
+    background:var(--green);padding:3px 10px;border-radius:999px;margin-bottom:14px;
+  }
+  .card .tag.peach{background:var(--peach);}
+  .card .tag.clay{background:var(--clay);}
+  .card h3{font-size:1.12rem;margin-bottom:10px;}
+  .card p{font-size:.92rem;color:var(--soft);flex:1;}
+  .card .more{margin-top:16px;font-size:.86rem;color:var(--clay);font-weight:600;}
+
+  /* ---------- behavior list ---------- */
+  .behavior{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .beh-list{display:grid;gap:16px;}
+  .beh-row{
+    display:grid;grid-template-columns:180px 1fr;gap:20px;
+    padding:20px 24px;background:var(--cream);border-radius:var(--radius);
+    border-left:4px solid var(--peach);
+  }
+  .beh-row strong{color:var(--clay);font-size:1rem;}
+  .beh-row p{font-size:.93rem;color:var(--soft);}
+
+  /* ---------- timeline / daily ---------- */
+  .day-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .day-item{
+    background:var(--white);border-radius:var(--radius);padding:22px;
+    border:1px solid var(--line);position:relative;
+  }
+  .day-item span.num{
+    font-size:1.6rem;font-weight:700;color:var(--warm);display:block;line-height:1;
+    margin-bottom:12px;
+  }
+  .day-item h3{font-size:1rem;margin-bottom:8px;}
+  .day-item p{font-size:.88rem;color:var(--soft);}
+
+  /* ---------- faq ---------- */
+  .faq{background:var(--warm);border-top:1px solid var(--line);}
+  .faq-list{display:grid;gap:14px;max-width:880px;}
+  details{
+    background:var(--white);border-radius:14px;padding:18px 22px;
+    border:1px solid var(--line);
+  }
+  details[open]{box-shadow:var(--shadow);}
+  summary{
+    cursor:pointer;font-weight:600;font-size:1rem;color:var(--deep);
+    list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"＋";color:var(--clay);font-weight:400;font-size:1.1rem;}
+  details[open] summary::after{content:"－";}
+  details p{margin-top:12px;font-size:.93rem;color:var(--soft);}
+
+  /* ---------- quote ---------- */
+  .quote-band{
+    background:linear-gradient(135deg,#4a3527,#6b4c36);
+    color:#f6e7d5;text-align:center;padding:70px 20px;
+  }
+  .quote-band blockquote{
+    font-size:1.45rem;line-height:1.7;max-width:760px;margin:0 auto;letter-spacing:1px;
+  }
+  .quote-band p{margin-top:18px;font-size:.9rem;color:#d7bfa6;letter-spacing:2px;}
+
+  /* ---------- footer ---------- */
+  footer.site-foot{
+    background:#3c2b20;color:#cbb6a4;padding:52px 0 26px;font-size:.9rem;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:34px;}
+  .foot-grid h4{color:#f6e7d5;font-size:1rem;margin-bottom:14px;letter-spacing:1px;}
+  .foot-grid p{line-height:1.9;font-size:.88rem;}
+  .foot-grid ul{list-style:none;display:grid;gap:9px;}
+  .foot-grid ul a{color:#cbb6a4;transition:.2s;}
+  .foot-grid ul a:hover{color:var(--peach);}
+  .foot-bottom{
+    border-top:1px solid rgba(246,231,213,.15);padding-top:20px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:.82rem;color:#9c8877;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .intro-grid,.card-grid{grid-template-columns:repeat(2,1fr);}
+    .day-grid{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:680px){
+    body{font-size:15px;}
+    .head-inner{flex-direction:column;align-items:flex-start;gap:10px;}
+    nav.main-nav{width:100%;overflow-x:auto;}
+    nav.main-nav a{white-space:nowrap;}
+    .hero{padding:44px 0 40px;}
+    .hero h1{font-size:1.8rem;}
+    .intro-grid,.card-grid,.day-grid{grid-template-columns:1fr;}
+    .beh-row{grid-template-columns:1fr;gap:8px;}
+    .foot-grid{grid-template-columns:1fr;}
+    section{padding:44px 0;}
+    .sec-head h2{font-size:1.35rem;}
+    .quote-band blockquote{font-size:1.15rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-inner">
+    <div class="brand">
+      <span class="paw">🐾</span>
+      <div>
+        猫咪有你有我足矣
+        <small>与猫相伴的温柔日常</small>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a class="active" href="#intro">初见</a>
+      <a href="#know">养猫知识</a>
+      <a href="#behavior">行为解读</a>
+      <a href="#daily">日常节奏</a>
+      <a href="#faq">常见问答</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>猫咪有你有我<span>足矣</span></h1>
+        <p class="lead">
+          养猫这件事，说到底是两个生命彼此靠近的过程。它不会说话，却用尾巴的弧度、呼噜的频率和贴过来的体温告诉你：今天也有人在等你回家。这里整理与猫咪相处时真正用得上的知识、观察和心情，写给每一位愿意慢下来的人。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-main" href="#know">开始了解养猫</a>
+          <a class="btn btn-ghost" href="#behavior">读懂猫咪行为</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>新手最先关心的几件事</h3>
+        <ul>
+          <li><span class="dot"></span><div><b>接猫回家：</b>先给它一个安静的小空间，不要急着抱、急着介绍给所有人。</div></li>
+          <li><span class="dot"></span><div><b>吃喝拉撒：</b>水、粮、猫砂盆的位置分开摆放，比买多贵的用品都重要。</div></li>
+          <li><span class="dot"></span><div><b>看医生：</b>到家适应后安排一次基础体检，之后的疫苗与驱虫遵医嘱。</div></li>
+          <li><span class="dot"></span><div><b>耐心：</b>信任是慢慢攒出来的，急不来，也不该急。</div></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro-band" id="intro">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">初 见</span>
+        <h2>为什么“有你有我”就够了</h2>
+        <p>猫咪的陪伴不是热闹型的，它更像一盏留着的灯。理解这一点，很多焦虑就会自然放下。</p>
+      </div>
+      <div class="intro-grid">
+        <div class="intro-item">
+          <h3>陪伴是双向的</h3>
+          <p>你给它稳定的食物、干净的水和安全的角落，它回赠你规律的作息、柔软的触感和一种被需要的感觉。这种交换没有合同，却真实发生。</p>
+        </div>
+        <div class="intro-item">
+          <h3>不必追求完美</h3>
+          <p>没有哪只猫天生乖巧，也没有哪位铲屎官一开始就懂所有事。允许自己边学边做，也允许猫咪有自己的脾气。</p>
+        </div>
+        <div class="intro-item">
+          <h3>慢，是一种尊重</h3>
+          <p>猫是领地意识很强的动物。让它先熟悉气味、再熟悉声音、最后熟悉你的手，这个顺序本身就是一种温柔的相处方式。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Knowledge -->
+  <section id="know">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">养 猫 知 识</span>
+        <h2>从入门到日常照护的核心要点</h2>
+        <p>以下内容为通用性经验整理，涉及健康与用药的部分，请以执业兽医的当面诊断为准。</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <span class="tag">环境</span>
+          <h3>给猫一个可以躲的地方</h3>
+          <p>猫在紧张时需要退路。纸箱、猫窝、柜子下方的一角都可以，关键是它能自己决定什么时候出来。强行把它从藏身处拖出来，只会延长适应期。</p>
+          <span class="more">布置要点 →</span>
+        </article>
+        <article class="card">
+          <span class="tag peach">饮食</span>
+          <h3>水比粮更值得操心</h3>
+          <p>猫天生饮水意愿偏低，流动水、宽口水碗、多点位摆放都能提高饮水量。换粮要循序渐进，突然更换常引起肠胃不适。</p>
+          <span class="more">饮水习惯 →</span>
+        </article>
+        <article class="card">
+          <span class="tag clay">猫砂</span>
+          <h3>猫砂盆的数量与位置</h3>
+          <p>普遍建议猫砂盆数量不少于猫的数量加一，并分散摆放。盆放在嘈杂的洗衣机旁或食物旁边，都可能让猫拒绝使用。</p>
+          <span class="more">清洁频率 →</span>
+        </article>
+        <article class="card">
+          <span class="tag">健康</span>
+          <h3>日常观察比定期检查更早发现问题</h3>
+          <p>食欲、饮水、排尿、排便、精神状态和体重变化，是最值得记录的六项。出现持续异常时，尽早就医比自行判断更稳妥。</p>
+          <span class="more">观察清单 →</span>
+        </article>
+        <article class="card">
+          <span class="tag peach">互动</span>
+          <h3>玩是消耗，也是沟通</h3>
+          <p>逗猫棒模拟猎物逃跑与躲藏，比用手直接逗更安全，也能避免猫把手当成玩具。每次玩到它喘气、趴下，再给一点食物收尾。</p>
+          <span class="more">游戏节奏 →</span>
+        </article>
+        <article class="card">
+          <span class="tag clay">安全</span>
+          <h3>家里的隐形风险</h3>
+          <p>百合类植物、部分人类药物、细绳与橡皮筋、未固定的纱窗，都是常见隐患。养猫之后，收好小物件是长期习惯。</p>
+          <span class="more">排查方向 →</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Behavior -->
+  <section class="behavior" id="behavior">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">行 为 解 读</span>
+        <h2>它在用身体说话</h2>
+        <p>猫的很多“奇怪”举动，其实都有合理的解释。看懂之后，你会少很多误会。</p>
+      </div>
+      <div class="beh-list">
+        <div class="beh-row">
+          <strong>呼噜声</strong>
+          <p>通常代表放松和满足，但部分猫在紧张或不适时也会发出呼噜声，这被认为是一种自我安抚。要结合姿势、耳朵和呼吸一起判断。</p>
+        </div>
+        <div class="beh-row">
+          <strong>缓慢眨眼</strong>
+          <p>常被理解为猫的“信任信号”。你可以试着用同样的速度回眨一次，很多猫会回应。这不是训练技巧，更像一次安静的对话。</p>
+        </div>
+        <div class="beh-row">
+          <strong>踩奶</strong>
+          <p>幼猫吃奶时的动作被保留下来，成年后多出现在柔软、安心的地方。如果爪子太尖，可以在这时垫一条毯子。</p>
+        </div>
+        <div class="beh-row">
+          <strong>尾巴的摆动</strong>
+          <p>轻轻摆尾是专注，快速拍打往往是不耐烦或过度刺激。看到快速甩尾时，停下手上的抚摸，给它一点空间。</p>
+        </div>
+        <div class="beh-row">
+          <strong>半夜跑酷</strong>
+          <p>猫的活跃高峰常在清晨与黄昏。睡前安排一次充分的互动游戏，再喂一顿，往往能明显改善夜间动静。</p>
+        </div>
+        <div class="beh-row">
+          <strong>蹭脸与磨爪</strong>
+          <p>既是留下气味标记领地，也是在确认“这里是我的家”。准备稳固的猫抓板，比事后责备有效得多。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily -->
+  <section id="daily">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">日 常 节 奏</span>
+        <h2>一天里，和猫相处的四个片段</h2>
+        <p>不需要精确到分钟，但稳定的节奏会让猫更有安全感，也让你更轻松。</p>
+      </div>
+      <div class="day-grid">
+        <div class="day-item">
+          <span class="num">01</span>
+          <h3>清晨</h3>
+          <p>换水、添粮、清理猫砂。动作尽量安静，让猫按自己的速度靠近。不要一睁眼就追着它抱。</p>
+        </div>
+        <div class="day-item">
+          <span class="num">02</span>
+          <h3>白天</h3>
+          <p>猫大多在睡觉。如果它愿意待在你看得见的地方，说明它已经把你当成了安全背景。</p>
+        </div>
+        <div class="day-item">
+          <span class="num">03</span>
+          <h3>傍晚</h3>
+          <p>互动游戏的黄金时间。用逗猫棒玩十到十五分钟，再喂食，模拟“捕猎—进食—梳理—睡觉”的自然循环。</p>
+        </div>
+        <div class="day-item">
+          <span class="num">04</span>
+          <h3>夜晚</h3>
+          <p>睡前再检查一次水和猫砂。如果猫喜欢挨着你睡，那是它给出的很高评价。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="quote-band">
+    <blockquote>“它不会说爱我，但它每天都会在同一个位置，等我推开门。”</blockquote>
+    <p>猫 咪 有 你 有 我 足 矣</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">常 见 问 答</span>
+        <h2>铲屎官们最常问的几个问题</h2>
+        <p>以下回答为通用建议，具体情况请结合猫咪个体差异并咨询专业人员。</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>刚接回家的猫一直躲着不出来，正常吗？</summary>
+          <p>很常见。猫到新环境会先确认安全，再逐步探索。可以把食物、水和猫砂盆放在它藏身处附近，减少打扰，通常几天到两周内会慢慢出来。如果长时间完全不吃不喝，应及时就医。</p>
+        </details>
+        <details>
+          <summary>猫为什么突然不用猫砂盆了？</summary>
+          <p>可能的原因包括猫砂盆太脏、位置太吵、猫砂类型变化、盆的数量不足，也可能与泌尿系统不适有关。建议先排除环境和清洁因素，若伴随频繁进出、排尿困难等情况，尽快就医。</p>
+        </details>
+        <details>
+          <summary>可以给猫喂人类的食物吗？</summary>
+          <p>多数人类调味食物并不适合猫，洋葱、大蒜、巧克力、酒精等对猫有明确风险。日常以猫专用主粮为主，想加餐时选择明确标注为猫用的零食。</p>
+        </details>
+        <details>
+          <summary>猫抓家具怎么办？</summary>
+          <p>抓挠是正常需求，不是报复。提供稳固、材质合适的猫抓板，放在它常抓的位置附近，并在它使用抓板时给予奖励，通常比惩罚更有效。</p>
+        </details>
+        <details>
+          <summary>养一只还是两只更好？</summary>
+          <p>没有统一答案。两只猫可以互相陪伴，但需要足够的空间、资源和循序渐进的引入过程；如果时间有限、居住空间较小，一只猫同样可以过得很好，关键在于陪伴质量。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>猫咪有你有我足矣</h4>
+        <p>一个关于猫咪陪伴与日常照护的内容站点。我们相信，人与猫之间最好的关系，是彼此都不必勉强，却愿意留在同一个房间里。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#intro">初见与相处心态</a></li>
+          <li><a href="#know">养猫基础知识</a></li>
+          <li><a href="#behavior">猫咪行为解读</a></li>
+          <li><a href="#daily">日常节奏安排</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>温馨提醒</h4>
+        <ul>
+          <li><a href="#faq">常见问题解答</a></li>
+          <li>健康问题请咨询执业兽医</li>
+          <li>领养前请评估长期责任</li>
+          <li>科学喂养，理性养宠</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 猫咪有你有我足矣 · 与猫相伴的温柔日常</span>
+      <span>内容仅供日常参考，不替代专业兽医诊断</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 平滑滚动与导航高亮
+  (function(){
+    var links = document.querySelectorAll('nav.main-nav a');
+    links.forEach(function(link){
+      link.addEventListener('click', function(){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    });
+
+    // 滚动时根据区块位置更新导航状态
+    var sections = [];
+    links.forEach(function(link){
+      var id = link.getAttribute('href');
+      if(id && id.charAt(0) === '#'){
+        var el = document.querySelector(id);
+        if(el){ sections.push({el: el, link: link}); }
+      }
+    });
+
+    if('IntersectionObserver' in window && sections.length){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            sections.forEach(function(item){
+              item.link.classList.toggle('active', item.el === entry.target);
+            });
+          }
+        });
+      }, {rootMargin: '-45% 0px -50% 0px', threshold: 0});
+
+      sections.forEach(function(item){ observer.observe(item.el); });
+    }
+  })();
+</script>
+
+</body>
+      </html>
